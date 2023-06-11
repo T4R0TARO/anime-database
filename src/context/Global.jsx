@@ -1,5 +1,4 @@
 import React, { useReducer, createContext, useContext, useEffect } from "react";
-// import { createContext, useContext } from "react";
 
 // Create a new context
 const GlobalContext = createContext();
@@ -58,11 +57,7 @@ export const GlobalContextProvider = ({ children }) => {
   );
 };
 
-// Define a consumer component ???
-// What is useContext()??
-// It provideds a simplified way to consude context within a functional component
-// It allows you to access the context value without wrapping your component with a `Consumer` component
-
+// useContext()
 export const useGlobalContext = () => {
   return useContext(GlobalContext);
 };

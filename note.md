@@ -23,6 +23,8 @@
 - When page first loads to retrieve data from an API
 - Create an empty state that will have global accessibility and wil be used later
 
+---
+
 ### React.createContext()
 
 ```jsx
@@ -78,7 +80,56 @@ export const GlobalContextProvider = ({ children }) => {
 };
 ```
 
-This is where you explain...
+React.createContext() is a function that create a new context object. Context is a feature in React that allows data to be passed down the component tree without explicitly passing through each intermediate component.
+
+React.createContext() returns an object that consists of two components: Provider and a Consumer component.
+
+1. Provider: a component that is responsibe for providing the context data to it's descendant components.
+2. Consumer: a component used tot access the context data within the component tree. It provides a way for components to subscribe to the context and access the value provided by the nearest matching Provider component.
+
+```jsx
+// Create a new context
+const MyContext = React.createContext();
+
+// Define a provider component
+const MyProvider = ({children}) => {
+  const sharedData = `This data is shared across components`;
+
+  return (
+    <MyContext.Provider value={sharedData}>
+      {children}
+    </MyContextProvider>
+  )
+}
+
+// Define a consumer component
+const MyConsumer = () => {
+  return (
+    <MyContext.Consumer>
+      {(value) => (
+        <div>
+          <p>Context value: {value}</p>
+        </div>
+      )}
+    </MyContext.Consumer>
+  )
+}
+
+// Usage within the component tree
+const App = () => {
+  return (
+    <MyProvider>
+      <div>
+        <h1>My App</h1>
+        <MyConsumer />
+      </div>
+    </MyProvider>
+  )
+}
+
+```
+
+---
 
 ### React.useContext()
 
