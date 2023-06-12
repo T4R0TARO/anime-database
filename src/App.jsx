@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const global = useGlobalContext();
   console.log(global);
+
   return (
     <div className="App">
       <Popular />
