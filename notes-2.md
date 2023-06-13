@@ -48,3 +48,35 @@ React.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 ```
+
+## Next steps...
+
+1. Create inital state
+2. Get base URL from API
+3. useReducer(): changes state
+
+```jsx
+// outside component
+const reducer = (state, action) => {
+  return state
+}
+
+// inside component
+export const GlobalContextProvider = ({children}) => {
+  // inital state
+  const initalState = {
+    item1: [],
+    item2: [],
+    item3: [],
+  }
+  const [state, dispatch] = useReducer(reducer, initalState)
+
+ return (
+    <GloablContext.Provider value={
+      ...state,
+    }>
+      {children}
+    </GlobalContext.Provider>
+  )
+}
+```
