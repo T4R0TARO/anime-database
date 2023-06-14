@@ -12,11 +12,7 @@ const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
 const GET_UPCOMING_ANIME = "GET_UPCOMING_ANIME";
 const GET_AIRING_ANIME = "GET_AIRING_ANIME";
 
-// reducer ORG
-// const reducer = (state, action) => {
-//   return state;
-// };
-
+// reducer()
 const reducer = (state, action) => {
   switch (action.type) {
     case LOADING:

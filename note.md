@@ -157,3 +157,78 @@ const [state, dispatch] = useReducer(reducer, initalState);
 This is where you explain...
 
 ### 19:00
+
+## Global.jsx
+
+```jsx
+import React, {createContext, useContext}  from 'react';
+
+const GlobalContext = createContext();
+
+// 1. base URL
+const baseURL = "https://api.jikan.moe/v4";
+
+// 6. reducer()
+const reducer = (state, action) => {
+  return state
+}
+
+export const GlobalContextProvider = ({children}) => {
+  // 2. inital state
+  const initalState = {
+    popularAnime : [],
+    loading: false,
+  }
+
+  // 5. useReducer()
+  const [state, dispatch] = useReducer(reducer, initalState)
+
+  // 3. get data
+  const getPopularAnime = async () => {
+    const response = await fetch(`${baseURL}/top/anime?filter`)
+    const data = await response.json();
+  }
+
+  // 4. useEffect()
+  useEffect(() => {
+    getPopularAnime()
+  },[])
+
+  // 7. update props value
+  return (
+    <GlobalContext.Provider value={...state}>
+        {children}
+    </GlobalContext.Provider>
+  )
+}
+
+export const useGlobalContext = () => {
+  return useContext(GlobalContext)
+}
+```
+
+## App.jsx
+
+```jsx
+import { useGlobalContext } from "./context/Global";
+
+function App() {
+  const global = useGlobalContext();
+
+  return <div className="App">{/* ... */}</div>;
+}
+```
+
+## main.jsx
+
+```jsx
+import { GlobalContextProvider } from "./context/Global";
+
+React.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <GlobalContext.Provider>
+      <App />
+    </GlobalContext.Provider>
+  </React.StrictMode>
+);
+```
