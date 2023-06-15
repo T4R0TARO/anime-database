@@ -8,56 +8,55 @@
 ## Global.jsx
 
 ```jsx
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 
-const GlobalContext = createContext(); ✅
+const GlobalContext = createContext();
 
-// base url
-const baseURL = `https://...`; ✅
+// baseURL
+const baseUrl = `https://...`;
 
-// actions ✅
-const LOADING = "LOADING";
-const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
+// actions
+const ACTION = {
+  LOADING: "LOADING",
+  GET_POPULAR_ANIME: "GET_POPULAR_ANIME",
+};
 
-// reducer() ✅
 const reducer = (state, action) => {
-  switch(action.type){
-    case LOADING:
-      return {...state, loading:false}
-    case GET_POPULAR_ANIME:
-      return {...state, popularAnime: action.payload, loading: false}
+  switch (action.type) {
+    case "LOADING":
+      return { ...state, loading: true };
+    case "GET_POPULAR_ANIME":
+      return { ...state, popularAnime: action.payload, loading: false };
     default:
-      return state
+      throw new Error();
   }
 };
 
 export const GlobalContextProvider = ({ children }) => {
-  // inital state ✅
+  // inital state
   const initalState = {
     loading: false,
     popularAnime: [],
   };
 
-  // useReducer() ✅
-  const [state, dispatch] = useReducer(reducer, initialState);
+  //  useReducer
+  const [state, dispatch] = useReducer(reducer, initalState);
 
-  // async await get data ✅
+  // async await 'get data'
   const getPopularAnime = async () => {
-    dispatch({ type: LOADING });
-    const response = await fetch(`${baseURL}/top/anime?filter/popular`);
+    dispatch({type: ACTION.LOADING})
+    const response = await fetch(`${baseUrl}/top/anime?filter/popularity`);
     const data = await response.json();
-    dispatch({ type: GET_POPULAR_ANIME, payload: data.data });
+    dispatch({type: ACTION.GET_POPULAR_ANIME, payload: data.data})
+    console.log(data.data);
   };
-
-  // useEffect() ✅
+  // useEffect
   useEffect(() => {
     getPopularAnime();
   }, []);
 
   return (
-    <GlobalContext.Provider value={...state}>
-      {children}
-    </GlobalContext.Provider>
+    <GlobalContext.Provider value={...state}>{children}</GlobalContext.Provider>
   );
 };
 
@@ -73,7 +72,6 @@ import { useGlobalContext } from "./context/Global";
 
 function App() {
   const global = useGlobalContext();
-  console.log(global);
   return (
     <div className="App">
       <Popular />
@@ -85,7 +83,7 @@ function App() {
 # main.jsx
 
 ```jsx
-import { GlobalContextProvider } from "react";
+import { GlobalContextProvider } from "./context/Global";
 
 React.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
