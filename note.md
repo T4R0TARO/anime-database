@@ -226,7 +226,7 @@ import { GlobalContextProvider } from "./context/Global";
 
 React.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GlobalContext.Provider>
+    <GlobalContext.Provide>
       <App />
     </GlobalContext.Provider>
   </React.StrictMode>

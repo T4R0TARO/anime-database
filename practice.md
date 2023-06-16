@@ -8,7 +8,7 @@
 ## Global.jsx
 
 ```jsx
-import { createContext, useContext, useReducer, useEffect } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 
 const GlobalContext = createContext();
 
