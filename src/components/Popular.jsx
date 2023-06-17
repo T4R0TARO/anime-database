@@ -12,7 +12,11 @@ export default function Popular() {
       return popularAnime.map((anime) => {
         return (
           <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
-            <img src={anime.images.jpg.large_image_url} alt="anime image" />
+            <img
+              className="popular-image"
+              src={anime.images.jpg.large_image_url}
+              alt="anime image"
+            />
           </Link>
         );
       });
