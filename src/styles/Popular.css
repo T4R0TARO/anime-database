@@ -16,14 +16,14 @@
 }
 
 .popular-anime a {
-  height: 600px;
+  height: 400px;
 }
 
 .popular-anime a img {
   height: 100%;
   width: 100%;
-  /* object-fit: contain; */
-  object-fit: cover;
+  object-fit: contain;
+  /* object-fit: cover; */
   object-position: center;
   border-radius: 10px;
 }
