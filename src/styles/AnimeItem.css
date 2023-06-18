@@ -80,3 +80,47 @@ h2,
   background-color: whitesmoke;
   border-radius: 10px;
 }
+
+/* Characters*/
+.characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 5px solid #e5e7eb;
+}
+
+.characters img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.character {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  background-color: #ededed;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.character p {
+  color: #27ae60;
+}
+
+.character:hover::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.5s ease-out;
+  border-radius: 8px;
+}
