@@ -1,0 +1,29 @@
+/* AIRING STYLES */
+
+.airing-container {
+  /* border-radius: 10px; */
+  background: whitesmoke;
+}
+
+.airing-anime {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 3rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.airing-anime a {
+  height: 400px;
+}
+
+.airing-anime a img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  /* object-fit: cover; */
+  object-position: center;
+  border-radius: 10px;
+}
