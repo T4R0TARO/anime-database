@@ -64,3 +64,8 @@ form .input-control input {
   top: 50%;
   transform: translateY(-50%);
 }
+
+.search-results-count {
+  position: absolute;
+  padding-left: 1rem;
+}

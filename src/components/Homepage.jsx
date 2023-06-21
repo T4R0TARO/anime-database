@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Popular from "./Popular.jsx";
+import Upcoming from "./Upcoming.jsx";
+import Airing from "./Airing.jsx";
 import { useGlobalContext } from "../context/Global.jsx";
 import "../styles/Homepage.css";
 
@@ -12,6 +14,8 @@ export default function Homepage() {
     getPopularAnime,
     getUpcomingAnime,
     getAiringAnime,
+    isSearch,
+    searchResults,
   } = useGlobalContext();
 
   const [rendered, setRendered] = useState("popular");
@@ -21,6 +25,10 @@ export default function Homepage() {
     switch (rendered) {
       case "popular":
         return <Popular rendered={rendered} />;
+      case "airing":
+        return <Airing rendered={rendered} />;
+      case "upcoming":
+        return <Upcoming rendered={rendered} />;
       default:
         return <Popular rendered={rendered} />;
     }
@@ -51,7 +59,7 @@ export default function Homepage() {
             </button>
           </div>
           {/* search form */}
-          <form action="" className="search-form">
+          <form action="" className="search-form" onSubmit={handleSubmit}>
             <div className="input-control">
               <input
                 type="text"
@@ -59,9 +67,15 @@ export default function Homepage() {
                 value={search}
                 onChange={handleChange}
               />
-              <button type="submit" onClick={handleSubmit}>
-                Search
-              </button>
+              <button type="submit">Search</button>
+              <div className="search-results-count">
+                {isSearch && (
+                  <p>
+                    {searchResults.length === 0 ? "No" : searchResults.length}{" "}
+                    Results Found
+                  </p>
+                )}
+              </div>
             </div>
           </form>
           {/* airing button */}

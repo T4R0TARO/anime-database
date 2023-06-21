@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global";
-import "../styles/Popular.css";
+import "../styles/Airing.css";
 
-export default function Popular({ rendered }) {
-  const { popularAnime, isSearch, searchResults } = useGlobalContext();
+export default function Airing({ rendered }) {
+  const { airingAnime, isSearch, searchResults } = useGlobalContext();
 
   const conditionalRender = () => {
-    if (!isSearch && rendered === "popular") {
-      return popularAnime.map((anime) => {
+    if (!isSearch && rendered === "airing") {
+      return airingAnime.map((anime) => {
         return (
           <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
             <img
-              className="popular-image"
+              className="airing-image"
               src={anime.images.jpg.large_image_url}
               alt="anime image"
             />
@@ -31,8 +31,8 @@ export default function Popular({ rendered }) {
   };
 
   return (
-    <div className="popular-container">
-      <div className="popular-anime">{conditionalRender()}</div>
+    <div className="airing-container">
+      <div className="airing-anime">{conditionalRender()}</div>
     </div>
   );
 }
