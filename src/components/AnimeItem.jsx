@@ -4,7 +4,6 @@ import "../styles/AnimeItem.css";
 
 export default function AnimeItem() {
   const { id } = useParams();
-  //   console.log(id);
 
   //state
   const [anime, setAnime] = useState([]);
@@ -44,7 +43,6 @@ export default function AnimeItem() {
     );
     const data = await response.json();
     setCharacters(data.data);
-    console.log(data.data);
   };
 
   useEffect(() => {
@@ -113,7 +111,7 @@ export default function AnimeItem() {
           </button>
         </p>
       </div>
-
+      {/*Trailer  */}
       <h3 className="title">Trailer</h3>
       <div className="trailer-container">
         {trailer?.embed_url && (
@@ -130,21 +128,31 @@ export default function AnimeItem() {
       <h3 className="title">Characters</h3>
       <div className="characters">
         {characters?.map((character, index) => {
-          const { role } = character;
+          const { role, voice_actors } = character;
           const { images, name, mal_id } = character.character;
           return (
-            <Link to={`/character/${mal_id}`} key={index}>
-              <div className="character">
-                <img src={images?.jpg.image_url} alt="character image" />
+            <div className="characters-container" key={index}>
+              <Link to={`/character/${mal_id}`}>
+                <div className="character">
+                  <img src={images?.jpg.image_url} alt="character image" />
+                </div>
                 <h4>{name}</h4>
                 <p>{role}</p>
-              </div>
-            </Link>
+              </Link>
+              <Link to={`/people/${voice_actors[0]?.person.mal_id}`}>
+                <div className="character voice-actor">
+                  <img
+                    src={voice_actors[0]?.person.images?.jpg.image_url}
+                    alt="voice-actor"
+                  />
+                </div>
+                <h4>{voice_actors[0]?.person.name}</h4>
+                <p>{voice_actors[0]?.language}</p>
+              </Link>
+            </div>
           );
         })}
       </div>
     </div>
   );
 }
-
-// allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
