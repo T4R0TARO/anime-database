@@ -1,7 +1,7 @@
 /* AIRING STYLES */
 
 .airing-container {
-  /* border-radius: 10px; */
+  display: flex;
   background: whitesmoke;
 }
 

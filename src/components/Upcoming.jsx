@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global";
 import "../styles/Upcoming.css";
+import Sidebar from "./Sidebar";
 
 export default function Upcoming({ rendered }) {
   const { upcomingAnime, isSearch, searchResults } = useGlobalContext();
@@ -33,6 +34,7 @@ export default function Upcoming({ rendered }) {
   return (
     <div className="upcoming-container">
       <div className="upcoming-anime">{conditionalRender()}</div>
+      <Sidebar />
     </div>
   );
 }
