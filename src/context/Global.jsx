@@ -17,6 +17,8 @@ const SEARCH = "SEARCH";
 const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
 const GET_UPCOMING_ANIME = "GET_UPCOMING_ANIME";
 const GET_AIRING_ANIME = "GET_AIRING_ANIME";
+const GET_PICTURES = "GET_PICTURES";
+const GET_VOICE_ACTOR = "GET_VOICE_ACTOR";
 
 // reducer()
 const reducer = (state, action) => {
@@ -29,6 +31,10 @@ const reducer = (state, action) => {
       return { ...state, airingAnime: action.payload, loading: false };
     case GET_UPCOMING_ANIME:
       return { ...state, upcomingAnime: action.payload, loading: false };
+    case GET_PICTURES:
+      return { ...state, pictures: action.payload, loading: false };
+    case GET_VOICE_ACTOR:
+      return { ...state, voiceActor: action.payload, loading: false };
     case SEARCH:
       return { ...state, searchResults: action.payload, loading: false };
     default:
@@ -46,6 +52,7 @@ export const GlobalContextProvider = ({ children }) => {
     pictures: [],
     isSearch: false,
     searchResults: [],
+    voiceActor: [],
     loading: false,
   };
 
@@ -109,6 +116,16 @@ export const GlobalContextProvider = ({ children }) => {
     dispatch({ type: SEARCH, payload: data.data });
   };
 
+  // get anime pictures
+  const getAnimePictures = async (id) => {
+    dispatch({ type: LOADING });
+    const response = await fetch(
+      `https://api.jikan.moe/v4/characters/${id}/pictures`
+    );
+    const data = await response.json();
+    dispatch({ type: GET_PICTURES, payload: data.data });
+  };
+
   // useEffect()
   useEffect(() => {
     getPopularAnime();
@@ -126,6 +143,7 @@ export const GlobalContextProvider = ({ children }) => {
         getAiringAnime,
         getUpcomingAnime,
         getPopularAnime,
+        getAnimePictures,
       }}
     >
       {children}

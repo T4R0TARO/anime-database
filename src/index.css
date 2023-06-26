@@ -27,3 +27,10 @@ button {
   padding: 8px;
   cursor: pointer;
 }
+
+/* Return to homepage link */
+.back {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
