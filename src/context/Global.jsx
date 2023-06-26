@@ -126,6 +126,14 @@ export const GlobalContextProvider = ({ children }) => {
     dispatch({ type: GET_PICTURES, payload: data.data });
   };
 
+  // getVoiceActor
+  const getVoiceActor = async (id) => {
+    dispatch({ type: LOADING });
+    const response = await fetch(`https://api.jikan.moe/v4/people/${id}/full`);
+    const data = await response.json();
+    dispatch({ type: GET_VOICE_ACTOR, payload: data.data });
+  };
+
   // useEffect()
   useEffect(() => {
     getPopularAnime();
@@ -144,6 +152,7 @@ export const GlobalContextProvider = ({ children }) => {
         getUpcomingAnime,
         getPopularAnime,
         getAnimePictures,
+        getVoiceActor,
       }}
     >
       {children}

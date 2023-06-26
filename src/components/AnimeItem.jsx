@@ -52,6 +52,9 @@ export default function AnimeItem() {
 
   return (
     <div className="anime-item-container">
+      <div className="back">
+        <Link to="/anime-database/">Back to Home</Link>
+      </div>
       <h1>{title}</h1>
       <h2>{title_japanese}</h2>
       <div className="details">
