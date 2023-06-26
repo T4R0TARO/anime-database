@@ -1,0 +1,106 @@
+/* VOICEACTOR STYLES */
+.VoiceActor {
+  /* padding: 3rem 10rem; */
+  padding: 3rem;
+  background: #ededed;
+}
+
+.voice-actor-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.actor-card {
+  padding: 2rem;
+  background: whitesmoke;
+  border-radius: 20px;
+}
+
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+.voice-actor-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.voice-actor-details p {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.voice-actor-details p span:first-child {
+  font-weight: 600;
+  color: #535bf2;
+}
+
+.voice-actor-about {
+  /* Keep ??? */
+  max-width: 600px;
+}
+
+/* Voiced Characters */
+.anime-voices-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  justify-content: center;
+  border: 5px solid #e5e7eb;
+}
+
+.voiced-characters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: #e5e7eb;
+  border-radius: 8px;
+}
+
+.voiced-character img {
+  border-radius: 8px;
+}
+
+.voiced-character-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.voiced-character-details p span:first-child {
+  font-weight: 600;
+  color: #535bf2;
+}
+
+/* Mobile Styles */
+@media (max-width: 760px) {
+  .details-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 690px) {
+  .voiced-characters-container {
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+}
