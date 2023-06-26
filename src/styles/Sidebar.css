@@ -1,0 +1,40 @@
+/* SIDEBAR STYLES */
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  background: #fff;
+  border-top: 5px solid #e5e7eb;
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.Sidebar h3 {
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+.sidebar-anime {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.sidebar-anime h5 {
+  font-size: 1rem;
+}
+
+.sidebar-anime img {
+  width: 100%;
+  border-radius: 5px;
+  border: 5px solid #e5e7eb;
+}
+
+.sidebar-anime a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  color: #27ae60;
+  margin-top: 1rem;
+}
