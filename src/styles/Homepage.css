@@ -69,3 +69,23 @@ form .input-control input {
   position: absolute;
   padding-left: 1rem;
 }
+
+/* MOBILE STLYES */
+@media (max-width: 940px) {
+  header {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .filter-btn {
+    margin-top: 1.5rem;
+  }
+  .search-container {
+    position: relative;
+  }
+
+  .search-form {
+    position: absolute;
+    transform: translateY(-110%);
+  }
+}
