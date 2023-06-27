@@ -1,9 +1,18 @@
 /* ANIME ITEM STYLES */
 
 .anime-item-container {
-  padding: 3rem 10rem;
+  padding: 4rem;
   background: #ededed;
   border-radius: 20px;
+}
+
+.anime-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 h1,
@@ -18,6 +27,10 @@ h2,
   background: whitesmoke;
   border-radius: 20px;
   margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-details-container {
@@ -25,6 +38,12 @@ h2,
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 880px) {
+  .image-details-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 .details img {
@@ -53,6 +72,16 @@ h2,
   color: #535bf2;
 }
 
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.scored-by {
+  font-size: 11px;
+}
+
 .description {
   line-height: 1.5rem;
   color: #6c7983;
@@ -71,6 +100,7 @@ h2,
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
 }
 
 .trailer-container iframe {
@@ -83,25 +113,33 @@ h2,
 
 /* Characters*/
 
+.characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 5px solid #e5e7eb;
+  justify-content: center;
+  align-items: center;
+}
+
 .characters-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  border: 1px solid #535bf2;
-  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  padding: 0.8rem;
   border-radius: 8px;
 }
 
-.characters {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-gap: 2rem;
-  background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  border: 5px solid #e5e7eb;
+@media (max-width: 470px) {
+  .characters-container {
+    flex-direction: column;
+  }
 }
 
 .characters img {
