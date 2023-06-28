@@ -6,45 +6,42 @@ import React, {
   useState,
 } from "react";
 
-// Create a new context
 const GlobalContext = createContext();
-
 const baseUrl = "https://api.jikan.moe/v4";
 
-//actions
-const LOADING = "LOADING";
-const SEARCH = "SEARCH";
-const GET_POPULAR_ANIME = "GET_POPULAR_ANIME";
-const GET_UPCOMING_ANIME = "GET_UPCOMING_ANIME";
-const GET_AIRING_ANIME = "GET_AIRING_ANIME";
-const GET_PICTURES = "GET_PICTURES";
-const GET_VOICE_ACTOR = "GET_VOICE_ACTOR";
+const ACTION = {
+  LOADING: "LOADING",
+  SEARCH: "SEARCH",
+  GET_POPULAR_ANIME: "GET_POPULAR_ANIME",
+  GET_UPCOMING_ANIME: "GET_UPCOMING_ANIME",
+  GET_AIRING_ANIME: "GET_AIRING_ANIME",
+  GET_PICTURES: "GET_PICTURES",
+  GET_VOICE_ACTOR: "GET_VOICE_ACTOR",
+};
 
-// reducer()
 const reducer = (state, action) => {
   switch (action.type) {
-    case LOADING:
+    case ACTION.LOADING:
       return { ...state, loading: true };
-    case GET_POPULAR_ANIME:
+    case ACTION.GET_POPULAR_ANIME:
       return { ...state, popularAnime: action.payload, loading: false };
-    case GET_AIRING_ANIME:
+    case ACTION.GET_AIRING_ANIME:
       return { ...state, airingAnime: action.payload, loading: false };
-    case GET_UPCOMING_ANIME:
+    case ACTION.GET_UPCOMING_ANIME:
       return { ...state, upcomingAnime: action.payload, loading: false };
-    case GET_PICTURES:
+    case ACTION.GET_PICTURES:
       return { ...state, pictures: action.payload, loading: false };
-    case GET_VOICE_ACTOR:
+    case ACTION.GET_VOICE_ACTOR:
       return { ...state, voiceActor: action.payload, loading: false };
-    case SEARCH:
+    case ACTION.SEARCH:
       return { ...state, searchResults: action.payload, loading: false };
     default:
       return state;
   }
 };
 
-// Define a provider component
+// Provider
 export const GlobalContextProvider = ({ children }) => {
-  // inital state
   const initalState = {
     popularAnime: [],
     upcomingAnime: [],
@@ -56,7 +53,7 @@ export const GlobalContextProvider = ({ children }) => {
     loading: false,
   };
 
-  // useReducer
+  // useReducer for initalState
   const [state, dispatch] = useReducer(reducer, initalState);
 
   // Form Input State
@@ -82,59 +79,58 @@ export const GlobalContextProvider = ({ children }) => {
     }
   };
 
-  // fetch popular anime
+  // fetch popular anime data
   const getPopularAnime = async () => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(`${baseUrl}/top/anime?filter=bypopularity`);
     const data = await response.json();
-    dispatch({ type: GET_POPULAR_ANIME, payload: data.data });
+    dispatch({ type: ACTION.GET_POPULAR_ANIME, payload: data.data });
   };
 
-  // airing anime
+  // fetch airing anime data
   const getAiringAnime = async () => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(`${baseUrl}/top/anime?filter=airing`);
     const data = await response.json();
-    dispatch({ type: GET_AIRING_ANIME, payload: data.data });
+    dispatch({ type: ACTION.GET_AIRING_ANIME, payload: data.data });
   };
 
-  // upcoming anime
+  // fetch upcoming anime data
   const getUpcomingAnime = async () => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(`${baseUrl}/seasons/upcoming?sfw`);
     const data = await response.json();
-    dispatch({ type: GET_UPCOMING_ANIME, payload: data.data });
+    dispatch({ type: ACTION.GET_UPCOMING_ANIME, payload: data.data });
   };
 
-  // search anime
+  // fetch search anime data
   const searchAnime = async (anime) => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(
       `https://api.jikan.moe/v4/anime?q=${anime}&order_by=popularity&sort=asc&sfw`
     );
     const data = await response.json();
-    dispatch({ type: SEARCH, payload: data.data });
+    dispatch({ type: ACTION.SEARCH, payload: data.data });
   };
 
-  // get anime pictures
+  // fetch anime pictures data
   const getAnimePictures = async (id) => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(
       `https://api.jikan.moe/v4/characters/${id}/pictures`
     );
     const data = await response.json();
-    dispatch({ type: GET_PICTURES, payload: data.data });
+    dispatch({ type: ACTION.GET_PICTURES, payload: data.data });
   };
 
-  // getVoiceActor
+  // fetch getVoiceActor data
   const getVoiceActor = async (id) => {
-    dispatch({ type: LOADING });
+    dispatch({ type: ACTION.LOADING });
     const response = await fetch(`https://api.jikan.moe/v4/people/${id}/full`);
     const data = await response.json();
-    dispatch({ type: GET_VOICE_ACTOR, payload: data.data });
+    dispatch({ type: ACTION.GET_VOICE_ACTOR, payload: data.data });
   };
 
-  // useEffect()
   useEffect(() => {
     getPopularAnime();
   }, []);
