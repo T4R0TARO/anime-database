@@ -134,8 +134,8 @@ export default function AnimeItem() {
             </div>
           </div>
           {/* Trailer */}
-          <h3 className="title">Trailer</h3>
           <div className="trailer-container">
+            <h3 className="title">Trailer</h3>
             {trailer?.embed_url && (
               <iframe
                 src={trailer?.embed_url}
