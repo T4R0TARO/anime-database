@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global";
 import "../styles/WatchList.css";
 
-export default function WatchList() {
+export default function Watchlist() {
   return (
     <div>
-      <h1>Watch List</h1>
+      <h1>Watchlist</h1>
     </div>
   );
 }
