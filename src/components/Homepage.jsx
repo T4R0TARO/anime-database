@@ -3,6 +3,7 @@ import Popular from "./Popular.jsx";
 import Upcoming from "./Upcoming.jsx";
 import Airing from "./Airing.jsx";
 import Loader from "./Loader.jsx";
+import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global.jsx";
 import "../styles/Homepage.css";
 
@@ -54,6 +55,11 @@ export default function Homepage() {
             </div>
             {/* SEARCH BAR */}
             <div className="search-container">
+              <div className="watchlist-link">
+                <Link to={"/mywatchlist"}>
+                  <button>Watchlist</button>
+                </Link>
+              </div>
               {/* popular button */}
               <div className="filter-btn popular-filter">
                 <button
