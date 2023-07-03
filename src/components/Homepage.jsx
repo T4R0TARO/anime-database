@@ -56,9 +56,9 @@ export default function Homepage() {
             {/* SEARCH BAR */}
             <div className="search-container">
               <div className="watchlist-link">
-                <Link to={"/mywatchlist"}>
+                {/* <Link to={"/mywatchlist"}>
                   <button>Watchlist</button>
-                </Link>
+                </Link> */}
               </div>
               {/* popular button */}
               <div className="filter-btn popular-filter">
