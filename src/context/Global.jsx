@@ -131,6 +131,9 @@ export const GlobalContextProvider = ({ children }) => {
     dispatch({ type: ACTION.GET_VOICE_ACTOR, payload: data.data });
   };
 
+  const [myWatchlist, setMyWatchlist] = useState([]);
+  const [finishedAnimeMap, setFinishedAnimeMap] = useState({});
+
   useEffect(() => {
     getPopularAnime();
   }, []);
@@ -149,6 +152,8 @@ export const GlobalContextProvider = ({ children }) => {
         getPopularAnime,
         getAnimePictures,
         getVoiceActor,
+        myWatchlist,
+        setMyWatchlist,
       }}
     >
       {children}
