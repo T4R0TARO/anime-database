@@ -6,7 +6,7 @@ import "../styles/AnimeItem.css";
 
 export default function AnimeItem() {
   const { id } = useParams();
-  const { loading } = useGlobalContext();
+  const { loading, myWatchlist, setMyWatchlist } = useGlobalContext();
 
   //state
   const [anime, setAnime] = useState([]);
@@ -49,6 +49,25 @@ export default function AnimeItem() {
     setCharacters(data.data);
   };
 
+  const addToWatchlistClick = () => {
+    // click should add anime to state `myWatchList`
+    // click should NOT be able to add duplicates to state `myWatchList`
+    const isDuplicate = myWatchlist.some(
+      (item) => item.mal_id === anime.mal_id
+    );
+    if (!isDuplicate) {
+      setMyWatchlist((prevMyWatchlist) => [...prevMyWatchlist, anime]);
+    }
+    console.log(anime.mal_id);
+    console.log("add anime");
+  };
+
+  const addButtonStyle = {
+    background: myWatchlist.some((item) => item.mal_id === anime.mal_id)
+      ? "lightgreen"
+      : "lightgray",
+  };
+
   useEffect(() => {
     getAnime(id);
     getCharacters(id);
@@ -62,6 +81,9 @@ export default function AnimeItem() {
         <div className="anime-item-container">
           <div className="back">
             <Link to="/anime-database/">Back to Home</Link>
+          </div>
+          <div className="item-watchlist-link">
+            <Link to={`/mywatchlist`}>My Watchlist</Link>
           </div>
           <div className="anime-card">
             <h1>{title}</h1>
@@ -89,9 +111,9 @@ export default function AnimeItem() {
                     <span>Score:</span>
                     <span className="score">
                       {score}{" "}
-                      <p className="scored-by">
+                      <span className="scored-by">
                         scored by {scored_by} reviewers
-                      </p>
+                      </span>
                     </span>
                   </p>
                   <p>
@@ -118,6 +140,11 @@ export default function AnimeItem() {
                     <span>Studio:</span>
                     <span>{studios?.map((studio) => studio.name)}</span>
                   </p>
+                  <button onClick={addToWatchlistClick} style={addButtonStyle}>
+                    {myWatchlist.some((item) => item.mal_id === anime.mal_id)
+                      ? "Added"
+                      : "Add to My Watchlist"}
+                  </button>
                 </div>
               </div>
 

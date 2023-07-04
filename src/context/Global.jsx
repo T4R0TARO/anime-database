@@ -154,6 +154,8 @@ export const GlobalContextProvider = ({ children }) => {
         getVoiceActor,
         myWatchlist,
         setMyWatchlist,
+        finishedAnimeMap,
+        setFinishedAnimeMap,
       }}
     >
       {children}
