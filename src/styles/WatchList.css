@@ -1,1 +1,56 @@
 /* WATCH LIST STYLES */
+.Watchlist {
+  border-radius: 10px;
+  padding: 3rem;
+  background: whitesmoke;
+  text-align: center;
+}
+
+.watchlist-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+  grid-gap: 5rem;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.watchlist-anime {
+  height: 450px;
+}
+
+.watchlist-anime a img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 1rem;
+}
+
+.watchlist-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.finished-anime {
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.remove-from-list {
+  color: white;
+  background: lightcoral;
+  border: none;
+  outline: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+}
