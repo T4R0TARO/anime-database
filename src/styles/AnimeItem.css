@@ -1,9 +1,8 @@
 /* ANIME ITEM STYLES */
 
 .anime-item-container {
-  padding: 8rem 4rem;
+  padding: 7rem 4rem;
   background: #ededed;
-  /* border-radius: 20px; */
 }
 
 .anime-card {
@@ -102,10 +101,6 @@ h2,
   color: #535bf2;
 }
 
-.title {
-  text-align: center;
-}
-
 .trailer-container {
   display: flex;
   justify-content: center;
@@ -125,7 +120,7 @@ h2,
 
 .characters {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 2rem;
   background: #fff;
   padding: 2rem;
@@ -147,8 +142,8 @@ h2,
 }
 
 @media (max-width: 470px) {
-  .characters-container {
-    flex-direction: column;
+  .anime-item-container {
+    padding: 7rem 1rem;
   }
 }
 
@@ -167,7 +162,7 @@ h2,
   position: relative;
   z-index: 1;
   /* Keep fixed height ??? */
-  height: 170px;
+  /* height: 170px; */
 }
 
 .character p {

@@ -26,7 +26,7 @@ export default function Gallery() {
           <div className="back">
             <Link to="/anime-database/">Back to Home</Link>
           </div>
-          <h1>Gallery Component</h1>
+          <h1>Character Gallery</h1>
           <div className="big-image">
             <img src={pictures[index]?.jpg.image_url} alt="selected image" />
           </div>

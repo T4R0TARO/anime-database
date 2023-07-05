@@ -173,7 +173,7 @@ export default function AnimeItem() {
               ></iframe>
             )}
           </div>
-          <h3 className="title">Characters</h3>
+          <h2 className="title">Characters</h2>
           <div className="characters">
             {characters?.map((character, index) => {
               const { role, voice_actors } = character;

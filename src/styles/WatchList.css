@@ -1,8 +1,7 @@
 /* WATCH LIST STYLES */
 .Watchlist {
   border-radius: 10px;
-  padding: 3rem;
-  background: whitesmoke;
+  padding: 7rem 4rem;
   text-align: center;
 }
 
@@ -10,7 +9,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
   grid-gap: 5rem;
-  padding: 2rem;
+  padding: 4rem;
   justify-content: center;
   align-items: center;
   width: 100%;

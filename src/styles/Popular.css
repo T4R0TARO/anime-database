@@ -7,7 +7,7 @@
 
 .popular-anime {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
   grid-gap: 2rem;
   padding: 2rem;
   justify-content: center;
@@ -22,6 +22,8 @@
 .popular-anime a img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
