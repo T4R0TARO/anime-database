@@ -58,8 +58,6 @@ export default function AnimeItem() {
     if (!isDuplicate) {
       setMyWatchlist((prevMyWatchlist) => [...prevMyWatchlist, anime]);
     }
-    console.log(anime.mal_id);
-    console.log("add anime");
   };
 
   const addButtonStyle = {
@@ -67,6 +65,8 @@ export default function AnimeItem() {
       ? "lightgreen"
       : "lightgray",
   };
+
+  console.log(trailer?.embed_url);
 
   useEffect(() => {
     getAnime(id);
@@ -165,7 +165,7 @@ export default function AnimeItem() {
           <div className="trailer-container">
             {trailer?.embed_url && (
               <iframe
-                src={trailer?.embed_url}
+                src={trailer?.embed_url.slice(0, -1) + `0`}
                 title={title}
                 width="800"
                 height="450"

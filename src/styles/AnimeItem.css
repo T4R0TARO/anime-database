@@ -120,7 +120,7 @@ h2,
 
 .characters {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 280px));
   grid-gap: 2rem;
   background: #fff;
   padding: 2rem;
@@ -161,8 +161,7 @@ h2,
   transition: all 0.5s ease-in-out;
   position: relative;
   z-index: 1;
-  /* Keep fixed height ??? */
-  /* height: 170px; */
+  height: 180px;
 }
 
 .character p {

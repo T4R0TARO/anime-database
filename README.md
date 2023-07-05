@@ -24,6 +24,7 @@ Website uses information about japanese animes using the [Jikan API](https://jik
 - Loader Animation
 - Mobile Friendly Design
 - Homepage Link
+- Watchlist Feature
 
 ### Screenshot
 
@@ -42,10 +43,6 @@ coming soon...
 - REACT
 - REACT-ROUTER-DOM
 - VITE
-
-### Continued development
-
-- Watchlist Feature: User can add and delete items from a personal watchlist
 
 ## Author
 
