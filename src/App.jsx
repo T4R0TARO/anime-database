@@ -11,10 +11,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="anime-database/" element={<Homepage />} />
-        <Route path="/anime/:id" element={<AnimeItem />} />
-        <Route path="/character/:id" element={<Gallery />} />
-        <Route path="/people/:id" element={<VoiceActor />} />
-        <Route path="/mywatchlist" element={<Watchlist />} />
+        <Route path="/anime-database/anime/:id" element={<AnimeItem />} />
+        <Route path="/anime-database/character/:id" element={<Gallery />} />
+        <Route path="/anime-database/people/:id" element={<VoiceActor />} />
+        <Route path="/anime-database/mywatchlist" element={<Watchlist />} />
       </Routes>
     </BrowserRouter>
   );

@@ -90,6 +90,7 @@ form .input-control input {
   .search-form {
     position: absolute;
     transform: translateY(-110%);
+    margin-bottom: 2rem;
   }
 }
 

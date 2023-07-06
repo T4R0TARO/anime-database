@@ -53,7 +53,7 @@ export default function Watchlist() {
           const isFinished = finishedAnimeMap[malId] || false;
           return (
             <div key={malId} className="watchlist-anime">
-              <Link to={`/anime/${malId}`}>
+              <Link to={`/anime-database/anime/${malId}`}>
                 <img src={anime.images.jpg.large_image_url} alt="anime image" />
               </Link>
               <div className="watchlist-buttons">
