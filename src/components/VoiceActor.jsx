@@ -89,7 +89,7 @@ export default function VoiceActor() {
                     </p>
                     <p>
                       <span>Title: </span>
-                      <Link to={`/anime/${mal_id}`}>
+                      <Link to={`/anime/${mal_id}/`}>
                         <span>{title}</span>
                       </Link>
                     </p>

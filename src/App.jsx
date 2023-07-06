@@ -8,13 +8,13 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter basename="/anime-database">
+    <BrowserRouter basename="/anime-database/">
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/anime/:id" element={<AnimeItem />} />
-        <Route path="/character/:id" element={<Gallery />} />
-        <Route path="/people/:id" element={<VoiceActor />} />
-        <Route path="/mywatchlist" element={<Watchlist />} />
+        <Route path="/anime/:id/" element={<AnimeItem />} />
+        <Route path="/character/:id/" element={<Gallery />} />
+        <Route path="/people/:id/" element={<VoiceActor />} />
+        <Route path="/mywatchlist/" element={<Watchlist />} />
       </Routes>
     </BrowserRouter>
   );
