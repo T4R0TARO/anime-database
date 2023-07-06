@@ -78,10 +78,10 @@ export default function AnimeItem() {
       ) : (
         <div className="anime-item-container">
           <div className="back">
-            <Link to="/anime-database/">Back to Home</Link>
+            <Link to="/">Back to Home</Link>
           </div>
           <div className="item-watchlist-link">
-            <Link to={`/anime-database/mywatchlist`}>My Watchlist</Link>
+            <Link to={`/mywatchlist`}>My Watchlist</Link>
           </div>
           <div className="anime-card">
             <h1>{title}</h1>
@@ -178,16 +178,14 @@ export default function AnimeItem() {
               const { images, name, mal_id } = character.character;
               return (
                 <div className="characters-container" key={index}>
-                  <Link to={`/anime-database/character/${mal_id}`}>
+                  <Link to={`/character/${mal_id}`}>
                     <div className="character">
                       <img src={images?.jpg.image_url} alt="character image" />
                     </div>
                     <h4>{name}</h4>
                     <p>{role}</p>
                   </Link>
-                  <Link
-                    to={`/anime-database/people/${voice_actors[0]?.person.mal_id}`}
-                  >
+                  <Link to={`/people/${voice_actors[0]?.person.mal_id}`}>
                     <div className="character voice-actor">
                       <img
                         src={voice_actors[0]?.person.images?.jpg.image_url}
