@@ -11,7 +11,7 @@ export default function Popular({ rendered }) {
     if (!isSearch && rendered === "popular") {
       return popularAnime.map((anime) => {
         return (
-          <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+          <Link to={`/anime-database/anime/${anime.mal_id}`} key={anime.mal_id}>
             <img
               className="popular-image"
               src={anime.images.jpg.large_image_url}
@@ -23,7 +23,7 @@ export default function Popular({ rendered }) {
     } else {
       return searchResults.map((anime) => {
         return (
-          <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+          <Link to={`/anime-database/anime/${anime.mal_id}`} key={anime.mal_id}>
             <img src={anime.images.jpg.large_image_url} alt="anime image" />
           </Link>
         );

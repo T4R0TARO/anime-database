@@ -5,40 +5,10 @@ import React, {
   useEffect,
   useState,
 } from "react";
+import { reducer, ACTION } from "./reducer";
 
 const GlobalContext = createContext();
 const baseUrl = "https://api.jikan.moe/v4";
-
-const ACTION = {
-  LOADING: "LOADING",
-  SEARCH: "SEARCH",
-  GET_POPULAR_ANIME: "GET_POPULAR_ANIME",
-  GET_UPCOMING_ANIME: "GET_UPCOMING_ANIME",
-  GET_AIRING_ANIME: "GET_AIRING_ANIME",
-  GET_PICTURES: "GET_PICTURES",
-  GET_VOICE_ACTOR: "GET_VOICE_ACTOR",
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case ACTION.LOADING:
-      return { ...state, loading: true };
-    case ACTION.GET_POPULAR_ANIME:
-      return { ...state, popularAnime: action.payload, loading: false };
-    case ACTION.GET_AIRING_ANIME:
-      return { ...state, airingAnime: action.payload, loading: false };
-    case ACTION.GET_UPCOMING_ANIME:
-      return { ...state, upcomingAnime: action.payload, loading: false };
-    case ACTION.GET_PICTURES:
-      return { ...state, pictures: action.payload, loading: false };
-    case ACTION.GET_VOICE_ACTOR:
-      return { ...state, voiceActor: action.payload, loading: false };
-    case ACTION.SEARCH:
-      return { ...state, searchResults: action.payload, loading: false };
-    default:
-      return state;
-  }
-};
 
 // Provider
 export const GlobalContextProvider = ({ children }) => {
@@ -131,9 +101,33 @@ export const GlobalContextProvider = ({ children }) => {
     dispatch({ type: ACTION.GET_VOICE_ACTOR, payload: data.data });
   };
 
+  // myWatchlist states
   const [myWatchlist, setMyWatchlist] = useState([]);
   const [finishedAnimeMap, setFinishedAnimeMap] = useState({});
 
+  // Load watchList and finishedAnimeMap from localStorage
+  useEffect(() => {
+    const storedWatchlist = localStorage.getItem("myWatchlist");
+    if (storedWatchlist) {
+      setMyWatchlist(JSON.parse(storedWatchlist));
+    }
+
+    const storedFinishedAnimeMap = localStorage.getItem("finishedAnimeMap");
+    if (storedFinishedAnimeMap) {
+      setFinishedAnimeMap(JSON.parse(storedFinishedAnimeMap));
+    }
+  }, []);
+
+  // Save watchList and finishedAnimeMap to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("myWatchlist", JSON.stringify(myWatchlist));
+  }, [myWatchlist]);
+
+  useEffect(() => {
+    localStorage.setItem("finishedAnimeMap", JSON.stringify(finishedAnimeMap));
+  }, [finishedAnimeMap]);
+
+  // getPopularAnime when page first loads
   useEffect(() => {
     getPopularAnime();
   }, []);

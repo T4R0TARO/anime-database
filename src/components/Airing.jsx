@@ -11,7 +11,7 @@ export default function Airing({ rendered }) {
     if (!isSearch && rendered === "airing") {
       return airingAnime.map((anime) => {
         return (
-          <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+          <Link to={`/anime-database/anime/${anime.mal_id}`} key={anime.mal_id}>
             <img
               className="airing-image"
               src={anime.images.jpg.large_image_url}
@@ -23,7 +23,7 @@ export default function Airing({ rendered }) {
     } else {
       return searchResults.map((anime) => {
         return (
-          <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
+          <Link to={`/anime-database/anime/${anime.mal_id}`} key={anime.mal_id}>
             <img src={anime.images.jpg.large_image_url} alt="anime image" />
           </Link>
         );
