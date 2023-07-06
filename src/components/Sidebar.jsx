@@ -14,10 +14,7 @@ export default function Sidebar() {
       <div className="sidebar-anime">
         {sortedPopularAnime.slice(0, 5).map((anime) => {
           return (
-            <Link
-              to={`/anime-database/anime/${anime.mal_id}`}
-              key={anime.mal_id}
-            >
+            <Link to={`/anime/${anime.mal_id}`} key={anime.mal_id}>
               <img src={anime.images.jpg.large_image_url} alt="top anime" />
               <h5>{anime.title}</h5>
             </Link>

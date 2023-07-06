@@ -33,7 +33,7 @@ export default function VoiceActor() {
         <div className="VoiceActor">
           <div className="voice-actor-container">
             <div className="back">
-              <Link to="/anime-database/">Back to Home</Link>
+              <Link to="/">Back to Home</Link>
             </div>
             <h1>Seiyu Info</h1>
             <div className="actor-card">
@@ -89,7 +89,7 @@ export default function VoiceActor() {
                     </p>
                     <p>
                       <span>Title: </span>
-                      <Link to={`/anime-database/anime/${mal_id}`}>
+                      <Link to={`/anime/${mal_id}`}>
                         <span>{title}</span>
                       </Link>
                     </p>

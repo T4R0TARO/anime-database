@@ -24,7 +24,7 @@ export default function Gallery() {
       ) : (
         <div className="Gallery">
           <div className="back">
-            <Link to="/anime-database/">Back to Home</Link>
+            <Link to="/">Back to Home</Link>
           </div>
           <h1>Character Gallery</h1>
           <div className="big-image">
