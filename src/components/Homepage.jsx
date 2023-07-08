@@ -5,6 +5,12 @@ import Airing from "./Airing.jsx";
 import Loader from "./Loader.jsx";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFire,
+  faStar,
+  faMagnifyingGlass,
+} from "@fortawesome/free-solid-svg-icons";
 import "../styles/Homepage.css";
 
 export default function Homepage() {
@@ -57,7 +63,10 @@ export default function Homepage() {
             <div className="search-container">
               <div className="watchlist-link">
                 <Link to={"/mywatchlist/"}>
-                  <button>Watchlist</button>
+                  <button>
+                    <FontAwesomeIcon icon={faStar} />
+                    Watchlist
+                  </button>
                 </Link>
               </div>
               {/* popular button */}
@@ -67,6 +76,7 @@ export default function Homepage() {
                     setRendered("popular");
                   }}
                 >
+                  <FontAwesomeIcon icon={faFire} />
                   Popular
                 </button>
               </div>
@@ -79,7 +89,10 @@ export default function Homepage() {
                     value={search}
                     onChange={handleChange}
                   />
-                  <button type="submit">Search</button>
+                  <button className="search-button" type="submit">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    <span>Search</span>
+                  </button>
                   <div className="search-results-count">
                     {isSearch && (
                       <p>

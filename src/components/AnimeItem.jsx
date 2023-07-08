@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global.jsx";
 import Loader from "./Loader.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome, faBookmark, faList } from "@fortawesome/free-solid-svg-icons";
 import "../styles/AnimeItem.css";
 
 export default function AnimeItem() {
@@ -78,10 +80,16 @@ export default function AnimeItem() {
       ) : (
         <div className="anime-item-container">
           <div className="back">
-            <Link to="/">Back to Home</Link>
+            <Link to="/">
+              <FontAwesomeIcon icon={faHome} />
+              <span>Back to Home</span>
+            </Link>
           </div>
           <div className="item-watchlist-link">
-            <Link to={`/mywatchlist/`}>My Watchlist</Link>
+            <Link to={`/mywatchlist/`}>
+              <FontAwesomeIcon icon={faList} />
+              <span>My Watchlist</span>
+            </Link>
           </div>
           <div className="anime-card">
             <h1>{title}</h1>
@@ -139,9 +147,12 @@ export default function AnimeItem() {
                     <span>{studios?.map((studio) => studio.name)}</span>
                   </p>
                   <button onClick={addToWatchlistClick} style={addButtonStyle}>
-                    {myWatchlist.some((item) => item.mal_id === anime.mal_id)
-                      ? "Added"
-                      : "Add to My Watchlist"}
+                    <FontAwesomeIcon icon={faBookmark} />
+                    <span>
+                      {myWatchlist.some((item) => item.mal_id === anime.mal_id)
+                        ? "Added"
+                        : "Add to My Watchlist"}
+                    </span>
                   </button>
                 </div>
               </div>

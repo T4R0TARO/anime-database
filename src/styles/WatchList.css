@@ -44,6 +44,12 @@
   border-radius: 20px;
 }
 
+.finished-anime,
+.remove-from-list,
+span {
+  margin-left: 0.5rem;
+}
+
 .remove-from-list {
   color: white;
   background: lightcoral;
