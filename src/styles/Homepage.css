@@ -70,7 +70,7 @@ form .input-control input {
 }
 
 /* MOBILE STLYES */
-@media (max-width: 940px) {
+@media (max-width: 1090px) {
   header {
     padding: 1rem;
     width: 100%;
@@ -94,7 +94,7 @@ form .input-control input {
   }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 520px) {
   .search-container {
     display: flex;
     flex-direction: column;
@@ -107,6 +107,10 @@ form .input-control input {
 
   .search-form {
     transform: translateY(-320%);
+  }
+
+  .search-button span {
+    display: none;
   }
 
   .watchlist-link,

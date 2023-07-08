@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global";
 import Loader from "./Loader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "../styles/VoiceActor.css";
 
 export default function VoiceActor() {
@@ -33,7 +35,10 @@ export default function VoiceActor() {
         <div className="VoiceActor">
           <div className="voice-actor-container">
             <div className="back">
-              <Link to="/">Back to Home</Link>
+              <Link to="/">
+                <FontAwesomeIcon icon={faHome} />
+                <span>Back to Home</span>
+              </Link>
             </div>
             <h1>Seiyu Info</h1>
             <div className="actor-card">

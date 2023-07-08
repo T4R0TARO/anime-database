@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global.jsx";
 import Loader from "./Loader.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 import "../styles/Gallery.css";
 
 export default function Gallery() {
@@ -24,7 +26,10 @@ export default function Gallery() {
       ) : (
         <div className="Gallery">
           <div className="back">
-            <Link to="/">Back to Home</Link>
+            <Link to="/">
+              <FontAwesomeIcon icon={faHome} />
+              <span>Back to Home</span>
+            </Link>
           </div>
           <h1>Character Gallery</h1>
           <div className="big-image">

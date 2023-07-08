@@ -5,6 +5,10 @@
   background: #ededed;
 }
 
+.item-watchlist-link span {
+  margin-left: 0.5rem;
+}
+
 .anime-card {
   display: flex;
   flex-direction: column;
@@ -65,6 +69,14 @@ h2,
   .anime-details {
     font-size: 0.7rem;
   }
+
+  .item-watchlist-link span {
+    display: none;
+  }
+
+  .item-watchlist-link {
+    font-size: 1.5rem;
+  }
 }
 
 .anime-details p {
@@ -75,6 +87,10 @@ h2,
 .anime-details p span:first-child {
   font-weight: 600;
   color: #535bf2;
+}
+
+.anime-details button span {
+  margin-left: 0.5rem;
 }
 
 .score {

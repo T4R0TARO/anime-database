@@ -1,6 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/Global";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faCircleCheck,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import "../styles/Watchlist.css";
 
 export default function Watchlist() {
@@ -44,7 +50,10 @@ export default function Watchlist() {
   return (
     <div className="Watchlist">
       <div className="back">
-        <Link to={`/`}>Back to Home</Link>
+        <Link to={`/`}>
+          <FontAwesomeIcon icon={faHome} />
+          <span>Back to Home</span>
+        </Link>
       </div>
       <h1>My Watchlist</h1>
       <div className="watchlist-container">
@@ -64,13 +73,15 @@ export default function Watchlist() {
                   }}
                   onClick={() => toggleFinishedButton(malId)}
                 >
-                  Finished
+                  {isFinished ? <FontAwesomeIcon icon={faCircleCheck} /> : ""}
+                  <span>Finished</span>
                 </button>
                 <button
                   className="remove-from-list"
                   onClick={() => removeFromList(malId)}
                 >
-                  Remove
+                  <FontAwesomeIcon icon={faXmark} />
+                  <span>Remove</span>
                 </button>
               </div>
             </div>
